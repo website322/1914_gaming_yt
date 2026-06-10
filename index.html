@@ -86,6 +86,19 @@
 
 <!-- JS -->
 <script src="script.js"></script>
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <h2>Enter Your Mobile Model</h2>
 
+    <input type="text" id="modelInput" placeholder="e.g. iPhone 11 / Infinix Note 12">
+
+    <button onclick="generateSensitivity()">Get Sensitivity</button>
+
+    <div id="result"></div>
+
+    <button class="close" onclick="closeModal()">Close</button>
+  </div>
+</div>
 </body>
 </html>
