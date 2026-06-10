@@ -1,205 +1,88 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ultra VIP Sensitivity Pro</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>1914 Gaming YT - Pro</title>
 
-<style>
-body{
-    margin:0;
-    font-family:Arial;
-    background: radial-gradient(circle,#0f0f0f,#000);
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-}
+  <link rel="stylesheet" href="style.css">
 
-.container{
-    width:92%;
-    max-width:450px;
-    background:rgba(255,255,255,0.05);
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 0 25px rgba(0,255,200,0.2);
-    text-align:center;
-}
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
-h2{
-    color:#00ffcc;
-}
-
-input{
-    width:100%;
-    padding:12px;
-    margin-top:10px;
-    border:none;
-    border-radius:10px;
-    font-size:16px;
-    outline:none;
-}
-
-button{
-    width:100%;
-    padding:12px;
-    margin-top:10px;
-    border:none;
-    border-radius:10px;
-    background:#00ffcc;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#00ddb3;
-}
-
-.suggestions{
-    text-align:left;
-    background:#111;
-    border-radius:8px;
-    margin-top:5px;
-    max-height:120px;
-    overflow-y:auto;
-}
-
-.suggestions div{
-    padding:8px;
-    cursor:pointer;
-}
-
-.suggestions div:hover{
-    background:#222;
-}
-
-.result{
-    margin-top:15px;
-    text-align:left;
-    background:rgba(0,0,0,0.4);
-    padding:12px;
-    border-radius:10px;
-}
-
-.badge{
-    margin-top:10px;
-    font-size:12px;
-    color:#777;
-}
-</style>
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="container">
+<!-- Particle Background -->
+<div id="particles-js"></div>
 
-<h2>🔥 ULTRA VIP PRO</h2>
+<header>
+  <div class="logo">1914 GAMING</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#videos">Videos</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-<input id="mobile" onkeyup="suggest()" placeholder="Search Mobile Model">
+<!-- HERO -->
+<section class="hero" id="home">
+  <h1>LEVEL UP YOUR GAME 🎮</h1>
+  <p>High Quality Gaming Content | TikTok & YouTube Creator</p>
 
-<div class="suggestions" id="suggestBox"></div>
+  <div class="buttons">
+    <a class="btn tiktok" href="https://www.tiktok.com/@1914_gaming_yt" target="_blank">
+      TikTok Follow
+    </a>
 
-<button onclick="generate()">Generate Ultra Sensitivity</button>
+    <a class="btn youtube" href="#" target="_blank">
+      YouTube Subscribe
+    </a>
+  </div>
+</section>
 
-<div id="out"></div>
+<!-- VIDEOS -->
+<section class="section" id="videos">
+  <h2>🔥 Latest Content</h2>
 
-<div class="badge">
-made by 1914_gaming_yt
-</div>
+  <div class="grid">
+    <div class="card">🎮 PUBG Montage</div>
+    <div class="card">⚡ Free Fire Highlights</div>
+    <div class="card">💀 Epic Wins</div>
+  </div>
 
-</div>
+  <!-- TikTok Embed -->
+  <div class="tiktok-box">
+    <blockquote class="tiktok-embed"
+      cite="https://www.tiktok.com/@1914_gaming_yt"
+      data-unique-id="1914_gaming_yt"
+      data-embed-type="creator">
+    </blockquote>
 
-<script>
+    <script async src="https://www.tiktok.com/embed.js"></script>
+  </div>
+</section>
 
-const phones = [
-"iphone 11","iphone 12","iphone 13","iphone 14",
-"samsung a12","samsung a32","samsung a54","samsung s21",
-"redmi note 10","redmi note 11","redmi note 12","redmi note 13",
-"vivo y20","vivo y21","vivo y33","oppo a16","oppo a57"
-];
+<!-- ABOUT -->
+<section class="section" id="about">
+  <h2>About Channel</h2>
+  <p>
+    We create next-level gaming content including gameplay highlights,
+    shorts, and viral TikTok clips. Join the community and level up!
+  </p>
+</section>
 
-// 🔍 suggestions
-function suggest(){
-    let input = document.getElementById("mobile").value.toLowerCase();
-    let box = document.getElementById("suggestBox");
-    box.innerHTML = "";
+<!-- FOOTER -->
+<footer id="contact">
+  <p>© 1914 Gaming YT | Built with Fire 🔥</p>
+</footer>
 
-    if(input === "") return;
-
-    let filtered = phones.filter(p => p.includes(input));
-
-    filtered.forEach(p=>{
-        box.innerHTML += `<div onclick="selectPhone('${p}')">${p}</div>`;
-    });
-}
-
-function selectPhone(name){
-    document.getElementById("mobile").value = name;
-    document.getElementById("suggestBox").innerHTML = "";
-}
-
-function generate(){
-
-let m = document.getElementById("mobile").value.toLowerCase();
-
-let base = 85;
-
-// smart detection
-if(m.includes("iphone")) base = 96;
-else if(m.includes("samsung s")) base = 94;
-else if(m.includes("samsung")) base = 91;
-else if(m.includes("redmi")) base = 89;
-else if(m.includes("vivo")) base = 87;
-else if(m.includes("oppo")) base = 86;
-else base = 84 + Math.floor(Math.random()*6);
-
-// 🔥 headshot ultra boost
-let headshot = 10;
-
-let general = base + headshot;
-let redDot = base + 4;
-let scope2x = base - 2;
-let scope4x = base - 10;
-let sniper = base - 20;
-
-// 📱 ULTRA DPI system
-let dpi = base < 88 ? 400 :
-          base < 92 ? 600 :
-          base < 95 ? 800 : 1000;
-
-// 🔘 Fire button + HUD
-let fire = base < 88 ? "48%" :
-           base < 92 ? "52%" : "55%";
-
-let hud = base > 92 ? "Pro Claw (4 Finger)" : "2–3 Finger Balanced";
-
-document.getElementById("out").innerHTML = `
-<div class="result">
-
-<h3>🎮 ${m.toUpperCase()}</h3>
-
-<p>🔥 General: ${general}</p>
-<p>🎯 Red Dot: ${redDot}</p>
-<p>🔭 2X Scope: ${scope2x}</p>
-<p>🔭 4X Scope: ${scope4x}</p>
-<p>🎯 Sniper: ${sniper}</p>
-
-<hr>
-
-<p>⚡ HEADSHOT MODE: ULTRA ACTIVE</p>
-
-<p>📱 DPI: ${dpi}</p>
-<p>🔘 Fire Button: ${fire}</p>
-<p>🎮 HUD: ${hud}</p>
-
-</div>
-`;
-
-localStorage.setItem("lastSettings", document.getElementById("out").innerHTML);
-}
-
-</script>
+<!-- JS -->
+<script src="script.js"></script>
 
 </body>
 </html>
